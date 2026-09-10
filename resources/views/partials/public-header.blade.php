@@ -18,12 +18,12 @@
             Discover
         </a>
 
-        <a href="{{ route('welcome') }}#stories">
-            Success Stories
-        </a>
-
         <a href="{{ route('welcome') }}#how">
             How it Works
+        </a>
+
+        <a href="{{ route('welcome') }}#stories">
+            Success Stories
         </a>
 
         <a href="{{ route('about-us') }}">
