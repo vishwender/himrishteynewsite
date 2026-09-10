@@ -6,7 +6,8 @@
 /vendor
 .env
 .env.backup
-.env.production
+.env.production.example
+.env.
 .phpunit.result.cache
 /.phpunit.cache
 .DS_Store
@@ -23,3 +24,4 @@ yarn-error.log
 /.vscode
 db.sql
 .ddev/
+.phpunit.cache
