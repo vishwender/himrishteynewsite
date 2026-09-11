@@ -276,7 +276,7 @@
          width: 180px;
          height: 365px;
 
-         left: 20%;
+         left: calc(50% - 170px);
          top: 5px;
 
          transform: rotate(-1deg);
@@ -289,7 +289,7 @@
          width: 180px;
          height: 330px;
 
-         right: 10%;
+         right: calc(50% - 170px);
          bottom: 0;
 
          transform: rotate(1deg);
@@ -353,14 +353,14 @@
              width: 160px;
              height: 325px;
 
-             left: 5%;
+             left: calc(50% - 147.5px);
          }
 
          .phone-mockup-secondary {
              width: 155px;
              height: 290px;
 
-             right: 0;
+             right: calc(50% - 147.5px);
          }
      }
 
@@ -416,7 +416,7 @@
              width: 155px;
              height: 315px;
 
-             left: calc(50% - 155px);
+             left: calc(50% - 140px);
 
              top: 0;
          }
@@ -425,7 +425,7 @@
              width: 145px;
              height: 275px;
 
-             right: calc(50% - 150px);
+             right: calc(50% - 140px);
 
              bottom: 5px;
          }
@@ -474,14 +474,14 @@
              width: 140px;
              height: 285px;
 
-             left: calc(50% - 140px);
+             left: calc(50% - 125px);
          }
 
          .phone-mockup-secondary {
              width: 130px;
              height: 250px;
 
-             right: calc(50% - 135px);
+             right: calc(50% - 125px);
          }
      }
  </style>

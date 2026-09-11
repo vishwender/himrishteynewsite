@@ -142,7 +142,7 @@ return [
             'hero_title' => env('SITE4_HERO_TITLE', 'Bring together faith, family, and future'),
             'hero_title_secondary' => env('SITE4_HERO_TITLE_SECONDARY', 'For the Dev Bhoomi community.'),
             'hero_subtitle' => env('SITE4_HERO_SUBTITLE', 'Dev Bhoomi Rishtey helps families connect through shared values, compatibility and respectful matchmaking.'),
-            'hero_background' => env('SITE4_HERO_BACKGROUND', 'assets/images/hero-devbhoomi.jpg'),
+            'hero_background' => env('SITE4_HERO_BACKGROUND', 'assets/images/home/hero-devbhoomi.png'),
             'hero_cta_primary' => env('SITE4_HERO_CTA_PRIMARY', 'Create Your Profile'),
             'hero_cta_secondary' => env('SITE4_HERO_CTA_SECONDARY', 'Browse Profiles'),
             'show_hero_stats' => env('SITE4_SHOW_HERO_STATS', true),
