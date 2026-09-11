@@ -286,7 +286,7 @@
     border: none;
     border-radius: 17px;
 
-    background: #df246b;
+    background: var(--site-primary);
     color: #ffffff;
 
     font-size: 19px;
@@ -301,12 +301,17 @@
 }
 
 .send-otp-btn:hover {
-    background: #cf1d60;
+    background: color-mix(in srgb, var(--site-primary) 80%, #000);
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 10px 25px rgba(223, 36, 107, 0.22);
+        0 10px 25px color-mix(in srgb, var(--site-primary) 22%, transparent);
+}
+
+.send-otp-btn:focus-visible {
+    outline: 3px solid var(--site-primary);
+    outline-offset: 3px;
 }
 
 .send-otp-btn:active {
@@ -363,7 +368,7 @@
 
 .otp-input:focus {
     box-shadow:
-        0 0 0 3px rgba(223, 36, 107, 0.12);
+        0 0 0 3px color-mix(in srgb, var(--site-primary) 12%, transparent);
 }
 
 .otp-info {
@@ -383,7 +388,7 @@
 
     background: transparent;
 
-    color: #df246b;
+    color: var(--site-primary);
 
     font-size: 14px;
     font-weight: 600;

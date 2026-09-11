@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Verify account - Him Rishtey')
+@section('title', 'Verify account - ' . $siteName)
 
 @section('styles')
 <link href="{{ asset('assets/css/verify-account.css') }}" rel="stylesheet" />
@@ -55,7 +55,7 @@
             <div class="brand">
 
                 <div class="brand-name">
-                    Him<span>Rishtey</span>
+                    {{ $siteName }}
                 </div>
 
                 <div class="brand-tagline">

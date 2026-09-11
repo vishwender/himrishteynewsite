@@ -216,3 +216,32 @@
 .sidebar .sidebar-label {
   color: rgba(255, 255, 255, .78);
 }
+
+/* Dashboard footer shares the public footer's per-site palette. */
+.site-footer,
+[data-theme="dark"] .site-footer {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--site-primary) 90%, #000) 0%,
+    var(--site-secondary) 100%
+  );
+  border-top-color: color-mix(in srgb, var(--site-accent) 35%, transparent);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+.site-footer .footer-tagline,
+.site-footer .footer-copy {
+  color: rgba(255, 255, 255, .82);
+}
+
+.site-footer .footer-links a {
+  color: rgba(255, 255, 255, .9);
+}
+
+.site-footer .footer-links a:hover,
+.site-footer .footer-links a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
