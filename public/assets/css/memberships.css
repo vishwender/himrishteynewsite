@@ -2,13 +2,17 @@
    Membership Section
 =========================== */
 
-*{
+.membership-section,
+.membership-section *,
+.membership-details,
+.membership-details *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
+.membership-section,
+.membership-details{
     font-family:"Poppins",sans-serif;
     background:#f8f8f8;
     color:#1f1f1f;

@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Delete Profile - Himrishtey')
+@section('title', 'Delete Profile - ' . $siteName)
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('assets/css/delete-profile.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/delete-profile.css') }}?v={{ filemtime(public_path('assets/css/delete-profile.css')) }}">
 @endsection
 
 @section('content')
@@ -35,9 +35,9 @@
                 </label>
 
                 <label class="reason-item">
-                    <input type="radio" name="reason" value="Found match on Himrishtey.com">
+                    <input type="radio" name="reason" value="Found match on {{ $siteName }}">
                     <span class="custom-radio"></span>
-                    <span>Found match on Himrishtey.com</span>
+                    <span>Found match on {{ $siteName }}</span>
                 </label>
 
                 <label class="reason-item">

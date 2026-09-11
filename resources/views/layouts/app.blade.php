@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/toast-manager.css') }}">
     @yield('styles')
     <link rel="stylesheet" href="{{ asset('assets/css/public-shell.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/public-footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/public-footer.css') }}?v={{ filemtime(public_path('assets/css/public-footer.css')) }}">
     <link rel="stylesheet" href="{{ asset('assets/css/public-cta.css') }}?v=20260903">
     <style>
     :root {

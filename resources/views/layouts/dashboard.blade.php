@@ -26,7 +26,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v=20260827-logo2" />
-  <link rel="stylesheet" href="{{ asset('assets/css/rateus.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/css/rateus.css') }}?v={{ filemtime(public_path('assets/css/rateus.css')) }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/toast-manager.css') }}" />
   @yield('styles')
   <link rel="stylesheet" href="{{ asset('assets/css/theme-overrides.css') }}?v={{ filemtime(public_path('assets/css/theme-overrides.css')) }}" />

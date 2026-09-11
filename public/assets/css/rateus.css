@@ -89,7 +89,7 @@
 .rate-submit {
     width: 100%;
     border: none;
-    background: #e91e63;
+    background: var(--site-primary);
     color: #fff;
     height: 55px;
     border-radius: 15px;
@@ -100,7 +100,12 @@
 }
 
 .rate-submit:hover {
-    background: #d81b60;
+    background: color-mix(in srgb, var(--site-primary) 80%, #000);
+}
+
+.rate-submit:focus-visible {
+    outline: 3px solid var(--site-primary);
+    outline-offset: 3px;
 }
 
 .rating-stars {
