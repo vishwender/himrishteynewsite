@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/rateus.css') }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/toast-manager.css') }}" />
   @yield('styles')
-  <link rel="stylesheet" href="{{ asset('assets/css/theme-overrides.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/css/theme-overrides.css') }}?v={{ filemtime(public_path('assets/css/theme-overrides.css')) }}" />
   <style>
     :root {
       --site-primary: {{ $sitePrimaryColor ?? '#b92c3d' }};
