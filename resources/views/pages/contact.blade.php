@@ -113,6 +113,12 @@ $contactAddress = $siteKey === 'himrishtey.com'
                     @error('message')<small class="contact-error" id="message-error">{{ $message }}</small>@enderror
                 </div>
 
+                <div class="contact-field">
+                    <label for="contact-captcha">Security question: What is {{ $captchaQuestion }}? <span>*</span></label>
+                    <input id="contact-captcha" name="captcha" type="text" inputmode="numeric" pattern="[0-9]+" autocomplete="off" required @error('captcha') aria-invalid="true" aria-describedby="captcha-error" @enderror>
+                    @error('captcha')<small class="contact-error" id="captcha-error">{{ $message }}</small>@enderror
+                </div>
+
                 <div class="contact-form-footer">
                     <p><i data-lucide="shield-check" width="16" height="16" aria-hidden="true"></i> Your details are used only to respond to this inquiry.</p>
                     <button class="public-cta public-cta-primary" type="submit">Send Message <i data-lucide="arrow-right" width="17" height="17" aria-hidden="true"></i></button>

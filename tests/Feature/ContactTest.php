@@ -18,6 +18,7 @@ class ContactTest extends TestCase
         config()->set('mail.from.address', 'support@example.com');
         (require database_path('migrations/2026_09_03_000000_create_contact_messages_table.php'))->up();
         Mail::fake();
+        $this->withSession(['contact_captcha' => ['answer' => 7, 'expires_at' => now()->addMinutes(30)->timestamp]]);
     }
 
     private function inquiry(): array
@@ -32,7 +33,7 @@ class ContactTest extends TestCase
 
     public function test_guest_inquiry_is_saved_and_emailed(): void
     {
-        $this->post('/contact-us', $this->inquiry())
+        $this->post('/contact-us', $this->inquiry() + ['captcha' => '7'])
             ->assertRedirect(route('contact-us'))
             ->assertSessionHas('contact_success');
         $this->assertDatabaseHas('contact_messages', $this->inquiry());
@@ -51,7 +52,7 @@ class ContactTest extends TestCase
                 'support_email' => 'tenant-support@example.com',
             ],
         ]);
-        $this->post('http://contact.example.com/contact-us', $this->inquiry())
+        $this->post('http://contact.example.com/contact-us', $this->inquiry() + ['captcha' => '7'])
             ->assertSessionHas('contact_success');
         $this->assertDatabaseHas('contact_messages', ['site_key' => 'contact.example.com']);
         Mail::assertSent(ContactInquiry::class, fn ($mail) => $mail->hasTo('tenant-support@example.com'));
@@ -70,7 +71,28 @@ class ContactTest extends TestCase
     public function test_mail_failure_preserves_inquiry_and_confirmation(): void
     {
         Mail::shouldReceive('to')->once()->andThrow(new \RuntimeException('Mail unavailable'));
-        $this->post('/contact-us', $this->inquiry())->assertSessionHas('contact_success');
+        $this->post('/contact-us', $this->inquiry() + ['captcha' => '7'])->assertSessionHas('contact_success');
+        $this->assertDatabaseCount('contact_messages', 1);
+    }
+
+    public function test_missing_wrong_and_expired_captcha_are_rejected(): void
+    {
+        foreach ([[], ['captcha' => '8']] as $answer) {
+            $this->postJson('/contact-us', $this->inquiry() + $answer)
+                ->assertUnprocessable()->assertJsonValidationErrors('captcha');
+        }
+        $this->withSession(['contact_captcha' => ['answer' => 7, 'expires_at' => now()->subMinute()->timestamp]])
+            ->postJson('/contact-us', $this->inquiry() + ['captcha' => '7'])
+            ->assertUnprocessable()->assertJsonValidationErrors('captcha');
+        $this->assertDatabaseCount('contact_messages', 0);
+        Mail::assertNothingSent();
+    }
+
+    public function test_captcha_cannot_be_reused(): void
+    {
+        $this->post('/contact-us', $this->inquiry() + ['captcha' => '7'])->assertSessionHas('contact_success');
+        $this->postJson('/contact-us', $this->inquiry() + ['captcha' => '7'])
+            ->assertUnprocessable()->assertJsonValidationErrors('captcha');
         $this->assertDatabaseCount('contact_messages', 1);
     }
 

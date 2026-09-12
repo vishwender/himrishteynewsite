@@ -66,9 +66,16 @@ class WelcomeController extends Controller
         return view('pages.success-stories', compact('stories'));
     }
 
-    public function contact()
+    public function contact(Request $request)
     {
-        return view('pages.contact');
+        $first = random_int(1, 9);
+        $second = random_int(1, 9);
+        $request->session()->put('contact_captcha', [
+            'answer' => $first + $second,
+            'expires_at' => now()->addMinutes(30)->timestamp,
+        ]);
+
+        return view('pages.contact', ['captchaQuestion' => "$first + $second"]);
     }
 
     public function submitContact(Request $request)
@@ -81,12 +88,21 @@ class WelcomeController extends Controller
             'subject' => ['required', 'string', Rule::in(ContactMessage::SUBJECTS)],
             'message' => ['required', 'string', 'min:10', 'max:3000'],
             'website' => ['nullable', 'max:0'],
+            'captcha' => ['bail', 'required', 'integer', function ($attribute, $value, $fail) use ($request) {
+                $challenge = $request->session()->get('contact_captcha');
+                if (!$challenge || $challenge['expires_at'] < now()->timestamp || (int) $value !== $challenge['answer']) {
+                    $fail('Please answer the security question correctly. Refresh the page if it has expired.');
+                }
+            }],
         ], [
             'phone.regex' => 'Please enter a valid phone number.',
             'website.max' => 'Your message could not be submitted.',
+            'captcha.required' => 'Please answer the security question.',
+            'captcha.integer' => 'Please enter a whole number.',
         ]);
 
-        unset($validated['website']);
+        unset($validated['website'], $validated['captcha']);
+        $request->session()->forget('contact_captcha');
 
         $message = ContactMessage::create($validated + [
             'site_key' => config('site.current.key'),
