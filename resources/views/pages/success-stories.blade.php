@@ -1,7 +1,11 @@
 @extends('layouts.public')
 @section('title', 'Success Stories')
+@push('head')
+<link rel="stylesheet" href="{{ asset('assets/css/success-stories.css') }}?v={{ filemtime(public_path('assets/css/success-stories.css')) }}">
+@endpush
 @section('content')
-<main class="ss-main" id="main-content">
+<div class="public-success-stories">
+<section class="ss-main" id="main-content">
 
   <!-- Page Header -->
   <div class="ss-page-header">
@@ -51,14 +55,14 @@
       <i data-lucide="heart-handshake" width="56" height="56"></i>
     </div>
     <h2 class="ss-empty-title">Be the first to share!</h2>
-    <p class="ss-empty-desc">No stories have been published yet. Found your match on HimRishtey? We'd love to celebrate with you.</p>
+    <p class="ss-empty-desc">No stories have been published yet. Found your match on {{ $siteName }}? We'd love to celebrate with you.</p>
     <button class="ss-empty-cta public-cta public-cta-primary" id="ssEmptyAddBtn">
       <i data-lucide="plus-circle" width="16" height="16"></i>
       Share Your Story
     </button>
   </div>
 
-</main>
+</section>
 
 <!-- ========== ADD STORY MODAL ========== -->
 <div class="ss-modal-overlay" id="ssModalOverlay" role="dialog" aria-modal="true" aria-labelledby="ssModalTitle" hidden>
@@ -105,7 +109,7 @@
 
         <div class="ss-field-group">
           <label class="ss-label" for="ssStoryText">Write Your Story <span class="ss-required" aria-hidden="true">*</span></label>
-          <textarea class="ss-textarea" id="ssStoryText" name="description" rows="4" placeholder="Share how you found each other on HimRishtey..." required></textarea>
+          <textarea class="ss-textarea" id="ssStoryText" name="description" rows="4" placeholder="Share how you found each other on {{ $siteName }}..." required></textarea>
           <span class="ss-char-count" id="ssCharCount" aria-live="polite">0 / 500</span>
         </div>
 
@@ -157,5 +161,8 @@
   <i data-lucide="check-circle-2" width="18" height="18"></i>
   <span id="ssToastMsg"></span>
 </div>
-<script src="{{asset('assets/js/success-stories.js')}}"></script>
+</div>
 @endsection
+@push('scripts')
+<script src="{{ asset('assets/js/success-stories.js') }}" defer></script>
+@endpush

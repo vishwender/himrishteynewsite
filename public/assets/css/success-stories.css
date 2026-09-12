@@ -849,3 +849,36 @@
   .public-site .ss-grid,
   .public-site .ss-empty { width: min(calc(100% - 32px), var(--container-max)); }
 }
+
+/* Tokens for the public layout, without affecting its header or footer. */
+.public-success-stories {
+  --container-max: 1160px;
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-20: 5rem;
+  --text-xs: .75rem;
+  --text-sm: .875rem;
+  --text-lg: 1.375rem;
+  --text-xl: 2.25rem;
+  --radius-md: .875rem;
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, .06);
+  --shadow-lg: 0 28px 70px rgba(0, 0, 0, .2);
+  --transition-interactive: .2s ease;
+  --color-primary: var(--brand);
+  --color-primary-hover: color-mix(in srgb, var(--brand) 80%, #000);
+  --color-primary-soft: color-mix(in srgb, var(--brand) 12%, var(--surface));
+  --color-primary-soft-2: color-mix(in srgb, var(--brand) 6%, var(--surface));
+  --color-text-faint: var(--muted);
+  --color-surface-offset: var(--surface-soft);
+  --color-surface-dynamic: var(--border);
+  --color-success: #2f855a;
+}
+
+.public-success-stories [hidden] {
+  display: none !important;
+}
