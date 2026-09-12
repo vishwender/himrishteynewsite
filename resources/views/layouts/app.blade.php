@@ -19,9 +19,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script type="module">
-        import { createIcons, icons } from 'https://cdn.jsdelivr.net/npm/lucide@0.468.0/+esm';
+        import {
+            createIcons,
+            icons
+        } from 'https://cdn.jsdelivr.net/npm/lucide@0.468.0/+esm';
 
-        const initializeLucideIcons = () => createIcons({ icons });
+        const initializeLucideIcons = () => createIcons({
+            icons
+        });
 
         window.lucide = window.lucide || {};
         window.lucide.createIcons = initializeLucideIcons;
@@ -38,18 +43,39 @@
     <link rel="stylesheet" href="{{ asset('assets/css/public-footer.css') }}?v={{ filemtime(public_path('assets/css/public-footer.css')) }}">
     <link rel="stylesheet" href="{{ asset('assets/css/public-cta.css') }}?v=20260903">
     <style>
-    :root {
-        --site-primary: {{ $sitePrimaryColor }};
-        --site-secondary: {{ $siteSecondaryColor }};
-        --site-accent: {{ $siteAccentColor }};
-        --brand: var(--site-primary);
-        --deep: var(--site-secondary);
-        --gold: var(--site-accent);
-    }
+        :root {
+            --site-primary: {
+                    {
+                    $sitePrimaryColor
+                }
+            }
+
+            ;
+
+            --site-secondary: {
+                    {
+                    $siteSecondaryColor
+                }
+            }
+
+            ;
+
+            --site-accent: {
+                    {
+                    $siteAccentColor
+                }
+            }
+
+            ;
+            --brand: var(--site-primary);
+            --deep: var(--site-secondary);
+            --gold: var(--site-accent);
+        }
     </style>
 </head>
 
-<body class="public-site tenant-{{ \Illuminate\Support\Str::slug($siteKey) }}">@include('partials.public-header')
+<body class="public-site tenant-{{ \Illuminate\Support\Str::slug($siteKey) }}">
+    @include('partials.public-header')
     <main class="public-content">@yield('content')</main>
     @include('partials.public-footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -63,7 +89,8 @@
         });
         document.querySelector('[data-public-menu]')?.addEventListener('click', () => document.querySelector('[data-public-mobile]')?.classList.toggle('open'));
         window.lucide?.createIcons();
-    </script>@yield('scripts')
+    </script>
+    @yield('scripts')
 </body>
 
 </html>

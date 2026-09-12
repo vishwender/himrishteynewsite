@@ -1,7 +1,5 @@
 <!doctype html>
-<html
-    lang="en"
-    data-site="{{ $siteKey }}">
+<html lang="en" data-site="{{ $siteKey }}">
 
 <head>
     <meta charset="utf-8">
