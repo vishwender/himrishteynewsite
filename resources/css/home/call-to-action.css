@@ -335,3 +335,469 @@
     }
 
 }
+
+/* =========================================================
+   APP DOWNLOAD / MOBILE APP CTA
+========================================================= */
+
+.app-download-section {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+
+    display: grid;
+    grid-template-columns: 46% 54%;
+    align-items: center;
+
+    overflow: hidden;
+
+    padding: 55px 70px;
+
+    background:
+        linear-gradient(135deg,
+            color-mix(in srgb, var(--site-secondary) 90%, #140c20),
+            color-mix(in srgb, var(--site-primary) 55%, #21142f));
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   LEFT SIDE
+========================================================= */
+
+.app-download-content {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+}
+
+.app-qr {
+    width: 90px;
+    height: 90px;
+
+    background: #fff;
+    padding: 7px;
+
+    border-radius: 3px;
+    margin-bottom: 22px;
+}
+
+.app-qr img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+.app-download-content h2 {
+    margin: 0 0 22px;
+
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(27px, 3vw, 39px);
+    line-height: 1.22;
+    font-weight: 400;
+
+    color: #fff;
+}
+
+.app-download-content h2 strong {
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   STORE BUTTONS
+========================================================= */
+
+.app-store-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.app-store-btn {
+    height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 5px 13px;
+
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 7px;
+
+    color: #fff;
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.app-store-btn:hover {
+    transform: translateY(-2px);
+    border-color: #fff;
+
+    color: #fff;
+}
+
+.app-store-icon {
+    flex: 0 0 auto;
+
+    width: 27px;
+    height: 29px;
+}
+
+.apple-icon {
+    width: 26px;
+}
+
+.app-store-btn span {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+.app-store-btn small {
+    margin-bottom: 3px;
+
+    font-size: 9px;
+    letter-spacing: 0.2px;
+
+    color: #fff;
+}
+
+.app-store-btn strong {
+    font-size: 16px;
+    font-weight: 500;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   DOWNLOAD DETAILS
+========================================================= */
+
+.app-download-meta {
+    margin-top: 10px;
+}
+
+.app-download-meta p {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.96);
+}
+
+.app-download-meta .download-count {
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+
+.app-rating {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 5px;
+}
+
+.rating-number {
+    font-family: "Outfit", sans-serif;
+
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.stars {
+    margin-bottom: 3px;
+
+    font-size: 31px;
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+    color: #ffc900;
+}
+
+.stars span {
+    color: #d6d4dc;
+}
+
+.app-rating small {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================================
+   RIGHT SIDE / PHONE MOCKUPS
+========================================================= */
+
+.app-phone-showcase {
+    position: relative;
+
+    min-height: 410px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Phone wrapper */
+
+.phone-mockup {
+    position: absolute;
+    z-index: 2;
+
+    padding: 7px;
+
+    background: #f4f4f4;
+
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    border-radius: 31px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.32),
+        0 4px 15px rgba(0, 0, 0, 0.18);
+
+    overflow: hidden;
+}
+
+.phone-mockup img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 23px;
+}
+
+
+/* Main / left phone */
+
+.phone-mockup-main {
+    width: 180px;
+    height: 365px;
+
+    left: calc(50% - 170px);
+    top: 5px;
+
+    transform: rotate(-1deg);
+}
+
+
+/* Secondary / right phone */
+
+.phone-mockup-secondary {
+    width: 180px;
+    height: 330px;
+
+    right: calc(50% - 170px);
+    bottom: 0;
+
+    transform: rotate(1deg);
+}
+
+
+/* =========================================================
+   DECORATIVE CIRCLES
+========================================================= */
+
+.app-decoration {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.app-decoration-one {
+    width: 130px;
+    height: 130px;
+
+    right: 6%;
+    top: 80px;
+
+    background:
+        color-mix(in srgb,
+            var(--site-accent) 35%,
+            transparent);
+}
+
+.app-decoration-two {
+    width: 180px;
+    height: 180px;
+
+    left: 34%;
+    bottom: -100px;
+
+    background:
+        color-mix(in srgb,
+            var(--site-primary) 25%,
+            transparent);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .app-download-section {
+        grid-template-columns: 1fr 1fr;
+
+        padding: 45px 35px;
+
+        min-height: 500px;
+    }
+
+    .phone-mockup-main {
+        width: 160px;
+        height: 325px;
+
+        left: calc(50% - 147.5px);
+    }
+
+    .phone-mockup-secondary {
+        width: 155px;
+        height: 290px;
+
+        right: calc(50% - 147.5px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .app-download-section {
+        display: flex;
+        flex-direction: column;
+
+        padding: 38px 20px 20px;
+
+        text-align: center;
+    }
+
+    .app-download-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .app-qr {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .app-download-content h2 {
+        font-size: 29px;
+    }
+
+    .app-store-buttons {
+        justify-content: center;
+    }
+
+    .app-rating {
+        justify-content: center;
+    }
+
+
+    /* phones */
+
+    .app-phone-showcase {
+        width: 100%;
+        min-height: 370px;
+
+        margin-top: 25px;
+    }
+
+    .phone-mockup-main {
+        width: 155px;
+        height: 315px;
+
+        left: calc(50% - 140px);
+
+        top: 0;
+    }
+
+    .phone-mockup-secondary {
+        width: 145px;
+        height: 275px;
+
+        right: calc(50% - 140px);
+
+        bottom: 5px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .app-download-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .app-download-content h2 {
+        font-size: 25px;
+    }
+
+    .app-store-btn {
+        height: 45px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .app-store-btn strong {
+        font-size: 14px;
+    }
+
+    .stars {
+        font-size: 24px;
+    }
+
+    .rating-number {
+        font-size: 30px;
+    }
+
+    .app-phone-showcase {
+        min-height: 330px;
+    }
+
+    .phone-mockup-main {
+        width: 140px;
+        height: 285px;
+
+        left: calc(50% - 125px);
+    }
+
+    .phone-mockup-secondary {
+        width: 130px;
+        height: 250px;
+
+        right: calc(50% - 125px);
+    }
+}
