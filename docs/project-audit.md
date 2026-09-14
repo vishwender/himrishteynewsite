@@ -2,6 +2,8 @@
 
 Audit date: 2026-09-05.
 
+Update (2026-09-14): the 33 retained candidates below and `public/assets/js/signup.js` were deleted with user approval. See [cleanup record](unused-files-review.md) for the exact list and validation. This document and `file-inventory.tsv` otherwise preserve the historical audit snapshot.
+
 ## Scope and confidence
 
 Inventoried the project files and inspected first-party source references, route registration, Blade inheritance/includes, Vite entry points and imports, configuration, model/class references, duplicate file contents, and tests. Dependency internals (`vendor` and `node_modules`), generated caches, logs, and binary/user uploads are classified separately; this is not a line-by-line dependency or security audit. Environment secret values are not included in this report.
