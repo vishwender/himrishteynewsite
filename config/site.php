@@ -49,6 +49,8 @@ return [
                 'access_token' => env('HIMRISHTEY_INSTAGRAM_ACCESS_TOKEN'),
             ],
             'android_app_url' => env('SITE1_ANDROID_APP_URL', 'https://play.google.com/store/apps/details?id=com.app.himrishtey'),
+            'android_app_qr' => 'assets/images/qr/himrishtey-google-play-qr.png',
+            'ios_app_qr' => 'assets/images/qr/ios-app-himrishtey.png',
             'ios_app_url' => env('SITE1_IOS_APP_URL', 'https://apps.apple.com/in/search?term=HimRishtey'),
         ],
         'dogririshtey.com' => [
@@ -87,6 +89,7 @@ return [
                 'youtube' => env('SITE2_SOCIAL_YOUTUBE'),
             ],
             'android_app_url' => env('SITE2_ANDROID_APP_URL'),
+            'android_app_qr' => 'assets/images/qr/dogririshtey-google-play-qr.png',
             'ios_app_url' => env('SITE2_IOS_APP_URL'),
         ],
         'gallpakki.com' => [
@@ -125,6 +128,7 @@ return [
                 'youtube' => env('SITE3_SOCIAL_YOUTUBE'),
             ],
             'android_app_url' => env('SITE3_ANDROID_APP_URL'),
+            'android_app_qr' => 'assets/images/qr/gallpakki-google-play-qr.png',
             'ios_app_url' => env('SITE3_IOS_APP_URL'),
         ],
         'devbhoomirishtey.com' => [
@@ -163,6 +167,7 @@ return [
                 'youtube' => env('SITE4_SOCIAL_YOUTUBE'),
             ],
             'android_app_url' => env('SITE4_ANDROID_APP_URL'),
+            'android_app_qr' => 'assets/images/qr/devbhoomirishtey-google-play-qr.png',
             'ios_app_url' => env('SITE4_IOS_APP_URL'),
         ],
     ],

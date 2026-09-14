@@ -315,11 +315,26 @@
              {{-- LEFT CONTENT --}}
              <div class="app-download-content">
 
-                 <div class="app-qr">
-                     <img
-                         src="{{ asset('assets/images/app/himrishtey-qr.png') }}"
-                         alt="Download {{ $siteName }} App QR Code">
+                 @if ($siteAndroidAppQr || $siteIosAppQr)
+                 <div class="app-qr-codes">
+                     @if ($siteAndroidAppQr)
+                     <figure class="app-qr">
+                         <img
+                             src="{{ asset($siteAndroidAppQr) }}"
+                             alt="Scan to download {{ $siteName }} on Google Play">
+                         <figcaption>Android</figcaption>
+                     </figure>
+                     @endif
+                     @if ($siteKey === 'himrishtey.com' && $siteIosAppQr)
+                     <figure class="app-qr">
+                         <img
+                             src="{{ asset($siteIosAppQr) }}"
+                             alt="Scan to download {{ $siteName }} on the App Store">
+                         <figcaption>iOS</figcaption>
+                     </figure>
+                     @endif
                  </div>
+                 @endif
 
                  <h2>
                      To speed up your partner search,<br>
@@ -327,27 +342,6 @@
                  </h2>
 
                  <div class="app-store-buttons">
-
-                     {{-- APP STORE --}}
-                     <a
-                         href="https://apps.apple.com/in/app/him-rishtey/id1669261836"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         class="app-store-btn">
-                         <svg
-                             class="app-store-icon apple-icon"
-                             viewBox="0 0 24 24"
-                             aria-hidden="true">
-                             <path
-                                 fill="currentColor"
-                                 d="M17.1 12.5c0-2.6 2.1-3.9 2.2-4-1.2-1.8-3.1-2-3.8-2-1.6-.2-3.1.9-3.9.9-.8 0-2-1-3.4-.9-1.7 0-3.4 1-4.3 2.6-1.9 3.2-.5 8 1.3 10.6.9 1.3 1.9 2.7 3.3 2.6 1.3-.1 1.8-.8 3.4-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.5-3 1.5-3.1-.1 0-2.9-1.1-2.9-4.1ZM14.4 4.8c.7-.9 1.2-2.1 1.1-3.3-1.1.1-2.4.7-3.2 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.4-.6 3.2-1.5Z" />
-                         </svg>
-
-                         <span>
-                             <small>Download on the</small>
-                             <strong>App Store</strong>
-                         </span>
-                     </a>
 
                      {{-- GOOGLE PLAY --}}
                      <a
@@ -374,6 +368,27 @@
                              <strong>Google Play</strong>
                          </span>
                      </a>
+                     {{-- APP STORE --}}
+                     <a
+                         href="https://apps.apple.com/in/app/him-rishtey/id1669261836"
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         class="app-store-btn">
+                         <svg
+                             class="app-store-icon apple-icon"
+                             viewBox="0 0 24 24"
+                             aria-hidden="true">
+                             <path
+                                 fill="currentColor"
+                                 d="M17.1 12.5c0-2.6 2.1-3.9 2.2-4-1.2-1.8-3.1-2-3.8-2-1.6-.2-3.1.9-3.9.9-.8 0-2-1-3.4-.9-1.7 0-3.4 1-4.3 2.6-1.9 3.2-.5 8 1.3 10.6.9 1.3 1.9 2.7 3.3 2.6 1.3-.1 1.8-.8 3.4-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.5-3 1.5-3.1-.1 0-2.9-1.1-2.9-4.1ZM14.4 4.8c.7-.9 1.2-2.1 1.1-3.3-1.1.1-2.4.7-3.2 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.4-.6 3.2-1.5Z" />
+                         </svg>
+
+                         <span>
+                             <small>Download on the</small>
+                             <strong>App Store</strong>
+                         </span>
+                     </a>
+
 
                  </div>
 
