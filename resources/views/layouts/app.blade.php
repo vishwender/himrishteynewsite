@@ -44,29 +44,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/public-cta.css') }}?v=20260903">
     <style>
         :root {
-            --site-primary: {
-                    {
-                    $sitePrimaryColor
-                }
-            }
-
-            ;
-
-            --site-secondary: {
-                    {
-                    $siteSecondaryColor
-                }
-            }
-
-            ;
-
-            --site-accent: {
-                    {
-                    $siteAccentColor
-                }
-            }
-
-            ;
+            --site-primary: {{ $sitePrimaryColor }};
+            --site-secondary: {{ $siteSecondaryColor }};
+            --site-accent: {{ $siteAccentColor }};
             --brand: var(--site-primary);
             --deep: var(--site-secondary);
             --gold: var(--site-accent);
