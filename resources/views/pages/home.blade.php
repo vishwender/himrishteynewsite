@@ -318,12 +318,12 @@
                  <div class="app-qr">
                      <img
                          src="{{ asset('assets/images/app/himrishtey-qr.png') }}"
-                         alt="Download HimRishtey App QR Code">
+                         alt="Download {{ $siteName }} App QR Code">
                  </div>
 
                  <h2>
                      To speed up your partner search,<br>
-                     download <strong>HimRishtey App</strong>
+                     download <strong>{{ $siteName }} App</strong>
                  </h2>
 
                  <div class="app-store-buttons">
@@ -379,7 +379,7 @@
 
                  <div class="app-download-meta">
                      <p>
-                         HimRishtey® – Trusted Matrimony App
+                         {{ $siteName }} – Trusted Matrimony App
                      </p>
 
                      <p class="download-count">
@@ -411,13 +411,13 @@
                  <div class="phone-mockup phone-mockup-main">
                      <img
                          src="{{ asset('assets/images/app/profile-screen.png') }}"
-                         alt="HimRishtey profile screen">
+                         alt="{{ $siteName }} profile screen">
                  </div>
 
                  <div class="phone-mockup phone-mockup-secondary">
                      <img
                          src="{{ asset('assets/images/app/matches-screen.png') }}"
-                         alt="HimRishtey matches screen">
+                         alt="{{ $siteName }} matches screen">
                  </div>
 
              </div>
