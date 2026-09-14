@@ -6,6 +6,7 @@ use App\Models\Member;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Services\EmailService;
 use Illuminate\Testing\Fluent\Concerns\Has;
@@ -52,6 +53,11 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
         $login    = trim($request->username);
         $password = $request->password;
         $captcha  = (int) $request->captcha;
@@ -73,7 +79,7 @@ class LoginController extends Controller
             ->first();
 
         // Validate credentials
-        if (!$member || $member->password !== $password) {
+        if (!$member || !Hash::check($password, $member->password)) {
 
             return response()->json([
                 'success' => false,
@@ -99,6 +105,7 @@ class LoginController extends Controller
 
     public function initial_registor(Request $request, EmailService $emailService)
     {
+        $request->validate(['password' => 'required|string|min:6']);
 
         if ((int)$request->captcha !== (int)session('captcha_answer')) {
             return response()->json([
@@ -112,7 +119,7 @@ class LoginController extends Controller
             'full_name' => $request->full_name,
             'email' => $request->email,
             'mobile_number' => $request->mobile_number,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'profile_created_for' => $request->profile_created_for,
             'gender' => $request->gender,
             'birth_date_time' => $request->birth_date,
@@ -157,7 +164,7 @@ class LoginController extends Controller
                 'full_name' => $googleUser->name,
                 'email' => $googleUser->email,
                 'google_id' => $googleUser->id,
-                'password' => bcrypt(\Illuminate\Support\Str::random(16)),
+                'password' => Hash::make(\Illuminate\Support\Str::random(32)),
                 'profile_id' => 'NA',
                 'registration_date' => now(),
                 'profile_completed' => '15%'

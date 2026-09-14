@@ -113,8 +113,8 @@ class MemberController extends Controller
     {
         $id = Auth::guard('member')->id();
         $validator = Validator::make($request->all(), [
-            'current_password' => 'required',
-            'new_password' => 'required|min:6|confirmed',
+            'current_password' => 'required|string',
+            'new_password' => 'required|string|min:6|confirmed',
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -122,12 +122,12 @@ class MemberController extends Controller
             ], 422);
         }
         $member = Member::findOrFail($id);
-        if ($request->current_password !== $member->password) {
+        if (!Hash::check($request->current_password, $member->password)) {
             return response()->json([
                 'errors' => ['current_password' => ['Current password is incorrect']]
             ], 422);
         }
-        $member->password = $request->new_password;
+        $member->password = Hash::make($request->new_password);
         $member->save();
         return response()->json([
             'success' => true,

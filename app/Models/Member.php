@@ -15,6 +15,8 @@ class Member extends Authenticatable
 
     protected $guarded = [];
 
+    protected $hidden = ['password', 'remember_token'];
+
     public $timestamps = false;
 
     protected $dates = [

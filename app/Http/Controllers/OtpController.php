@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Services\NimbusSmsService;
 use Illuminate\Support\Facades\Session;
 use App\Models\Member; // your Member model
@@ -51,10 +52,11 @@ class OtpController extends Controller
 
     public function update_password(Request $request)
     {
+        $request->validate(['password' => 'required|string|min:8|confirmed']);
         $opt_mobile = session::get('otp_mobile');
         $member = Member::where('mobile_number', $opt_mobile)->first();
         if (!empty($member)) {
-            $member->password = $request->password;
+            $member->password = Hash::make($request->password);
             $member->update();
             return response()->json(['message' => 'Password updated. Please login']);
         }

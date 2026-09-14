@@ -106,3 +106,25 @@ Point the web server document root at `public/`, as the DDEV configuration alrea
 Install Composer dependencies, build Vite assets, configure the site databases and integrations, and apply reviewed outstanding migrations. The repository contains example environment files; use deployment-managed credentials for actual environments.
 
 See [the file audit](docs/project-audit.md), [the file inventory](docs/file-inventory.tsv), [archived files](docs/archived-files.json), and [view moves](docs/moved-files.json) for the cleanup record.
+
+## Member password migration
+
+Member login and password changes verify hashes with Laravel's `Hash::check`.
+Registration and all password update handlers store `Hash::make` output.
+Plaintext credentials must be migrated before enabling password login with this code.
+
+Preview and migrate each member database using its configured connection name:
+
+```sh
+php artisan members:hash-passwords --connection=site1 --dry-run
+php artisan members:hash-passwords --connection=site1
+```
+
+Repeat for the other configured site connections (`site2`, `site3`, `site4`) as applicable.
+In DDEV, prefix these commands with `ddev exec`. Without `--connection`, the command
+uses the default database connection; it does not automatically process all sites.
+Use a database backup before migration and ensure the legacy password column can
+store the configured hash (60 characters for bcrypt; 255 accommodates Argon hashes).
+The command preserves existing bcrypt/Argon hashes and null/empty values, can be
+rerun, and skips updates when the stored password changed after reading a batch.
+It does not recover plaintext or rehash existing hashes to a different algorithm.

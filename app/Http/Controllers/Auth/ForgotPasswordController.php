@@ -225,6 +225,7 @@ class ForgotPasswordController extends Controller
 
             'password' => [
                 'required',
+                'string',
                 'min:8',
                 'confirmed',
             ],
@@ -302,7 +303,7 @@ class ForgotPasswordController extends Controller
         |--------------------------------------------------------------------------
         */
 
-        $member->password = $request->password;
+        $member->password = Hash::make($request->password);
 
         $member->save();
 

@@ -325,7 +325,7 @@ class MemberJourneyTest extends TestCase
             'full_name' => 'Regression Test Member',
             'email' => 'member-' . uniqid() . '@example.test',
             'mobile_number' => '9000000000',
-            'password' => 'test-password',
+            'password' => \Illuminate\Support\Facades\Hash::make('test-password'),
             'gender' => 'Male',
             'birth_date_time' => '1995-01-01 08:00:00',
             'height' => '170',
