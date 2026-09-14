@@ -127,7 +127,7 @@ return [
             'android_app_url' => env('SITE3_ANDROID_APP_URL'),
             'ios_app_url' => env('SITE3_IOS_APP_URL'),
         ],
-        'devbhoomirishte.com' => [
+        'devbhoomirishtey.com' => [
             'search_state' => 'Uttarakhand',
             'hosts' => ['devbhoomi.ddev.site', 'devbhoomirishtey.com'],
             'name' => env('SITE4_NAME', 'Dev Bhoomi Rishtey'),
