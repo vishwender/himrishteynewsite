@@ -351,7 +351,7 @@
 
                      {{-- GOOGLE PLAY --}}
                      <a
-                         href="https://play.google.com/store/apps/details?id=com.himrishtey.app"
+                         href="{{ $siteAndroidAppUrl }}"
                          target="_blank"
                          rel="noopener noreferrer"
                          class="app-store-btn">
